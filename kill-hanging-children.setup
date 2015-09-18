@@ -1,0 +1,9 @@
+;; -*- scheme -*-
+(include "version.scm")
+
+(compile -d1 -O3 kill-hanging-children.scm)
+
+(install-program
+ 'kill-hanging-children
+ '("kill-hanging-children")
+ `((version ,kill-hanging-children-version)))

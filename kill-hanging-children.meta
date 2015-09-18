@@ -1,0 +1,5 @@
+;; -*- scheme -*-
+((synopsis "A tool to detect and kill hanging child processes")
+ (author "Mario Domenech Goulart")
+ (category tools)
+ (license "BSD"))
