@@ -65,7 +65,7 @@
               (cond ((memq hanging-pid (list-processes))
                      (retry (fx+ 1 retry-count)))
                     (else
-                     (log! "Killed")
+                     (log! "Killed ~a" hanging-pid)
                      (return #f))))
              (else
               (log! "Could not kill ~a after ~a attempts"
