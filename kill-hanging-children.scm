@@ -48,8 +48,8 @@
 (define (kill-hanging-process! hanging-pid #!key (max-retries 10))
   (call/cc
    (lambda (return)
-     (let retry ((retry-count 0))
-       (cond ((< retry-count max-retries)
+     (let retry ((retry-count 1))
+       (cond ((<= retry-count max-retries)
               (log! "Attempting to kill ~a with signal/term (attempt ~a of ~a)"
                     hanging-pid retry-count max-retries)
               (process-signal hanging-pid)
