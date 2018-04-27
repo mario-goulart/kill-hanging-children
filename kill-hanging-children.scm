@@ -7,6 +7,7 @@
 
 (cond-expand
   (linux (include "linux-specific.scm"))
+  (freebsd (include "freebsd-specific.scm"))
   (else  (error "platform not supported")))
 
 (define *max-run-time-before-kill* (* 60 60))
