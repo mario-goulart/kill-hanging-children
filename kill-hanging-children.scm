@@ -59,7 +59,7 @@
                            hanging-pid retry-count max-retries)
                      (process-signal hanging-pid signal/kill))
                     (else
-                     (log! "Killed")
+                     (log! "Killed ~a" hanging-pid)
                      (return #f)))
               (sleep 1)
               (cond ((memq hanging-pid (list-processes))
