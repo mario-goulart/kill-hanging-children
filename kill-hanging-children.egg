@@ -1,0 +1,14 @@
+;;; kill-hanging-children.egg -*- scheme -*-
+
+((synopsis "A tool to detect and kill hanging child processes")
+ (author "Mario Domenech Goulart")
+ (license "BSD")
+ (category tools)
+ (build-dependencies srfi-1 srfi-13)
+ (component-options
+  (csc-options "-O3" "-d1"))
+ (components
+  (extension kill-hanging-children
+             (source-dependencies
+              "linux-specific.scm"
+              "freebsd-specific.scm"))))

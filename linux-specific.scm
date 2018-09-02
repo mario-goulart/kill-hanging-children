@@ -7,7 +7,9 @@
 (define (process-parent-pid pid)
   (let ((lines (handle-exceptions exn
                  #f
-                 (read-lines (sprintf "/proc/~a/status" pid)))))
+                 (with-input-from-file
+                     (sprintf "/proc/~a/status" pid)
+                   read-lines))))
     (and lines
          (let loop ((lines lines))
            (if (null? lines)

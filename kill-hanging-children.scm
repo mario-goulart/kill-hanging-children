@@ -1,7 +1,30 @@
 (module kill-hanging-children ()
 
-(import chicken scheme)
-(use data-structures extras files irregex posix srfi-1 srfi-13)
+(import scheme)
+(cond-expand
+  (chicken-4
+   (import chicken)
+   (use data-structures extras files irregex posix srfi-1 srfi-13))
+  (chicken-5
+   (import (chicken base)
+           (chicken condition)
+           (chicken file)
+           (chicken file posix)
+           (chicken fixnum)
+           (chicken format)
+           (chicken io)
+           (chicken irregex)
+           (chicken pathname)
+           (chicken process)
+           (chicken process-context)
+           (chicken process signal)
+           (chicken sort)
+           (chicken string)
+           (chicken time)
+           (chicken time posix))
+   (import srfi-1 srfi-13))
+  (else
+   (error "Unsupported CHICKEN version.")))
 
 (include "version.scm")
 
