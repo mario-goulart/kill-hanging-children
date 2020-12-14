@@ -8,7 +8,7 @@
  (component-options
   (csc-options "-O3" "-d1"))
  (components
-  (extension kill-hanging-children
-             (source-dependencies
-              "linux-specific.scm"
-              "freebsd-specific.scm"))))
+  (program kill-hanging-children
+           (source-dependencies
+            "linux-specific.scm"
+            "freebsd-specific.scm"))))
